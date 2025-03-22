@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>API Authentication Successful</title>
+    <title>Authentication Complete</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
+        .code-box { background: #f0f0f0; padding: 15px; border-radius: 5px; font-family: monospace; word-break: break-all; }
+    </style>
 </head>
 <body>
-    <h1>Authentication Successful</h1>
-    <p>You can close this window and return to the application.</p>
+    <h1>Authentication Complete</h1>
+    <p>Your authentication code is:</p>
+    <div class="code-box" id="authCode">Loading...</div>
+    <p><strong>Copy this code and paste it back in your application.</strong></p>
+
+    <script>
+        // Extract auth_code from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const authCode = urlParams.get('auth_code');
+        
+        // Display the code
+        document.getElementById('authCode').textContent = authCode || 'No code found in URL';
+    </script>
 </body>
 </html>
